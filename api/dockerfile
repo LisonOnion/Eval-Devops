@@ -1,0 +1,16 @@
+FROM node:latest
+
+RUN mkdir -p /home/app/api
+WORKDIR usr/src/app
+
+ENV PORT 5000
+
+EXPOSE 5000
+
+COPY package*.json ./
+
+RUN npm install
+
+COPY . . 
+
+CMD ["npm", "run", "dev"]
